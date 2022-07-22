@@ -1,3 +1,6 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 import notFound from '../../assets/notFound.svg';
 import styled from 'styled-components';
 import colors from '../../utils/style/colors';

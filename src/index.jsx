@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import colors from './utils/style/colors';
 
+import * as THREE from 'three';
+
 // Components
 
 import Header from './components/Header';
+import Error from './components/Error';
 
 // Pages
 
-import Error from './components/Error';
+import Home from './pages/Home';
 
 //global style
 
@@ -36,7 +39,7 @@ root.render(
         <BrowserRouter>
             <Header />
             <Routes>
-                <Route exact path="/" />
+                <Route exact path="/" element={<Home />} />
                 <Route path="*" element={<Error />} />
             </Routes>
         </BrowserRouter>

@@ -1,3 +1,6 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 import styled from 'styled-components';
 import colors from '../../utils/style/colors';
 import galaxyLogo from '../../assets/galaxy.png';
@@ -41,7 +44,7 @@ function Header() {
                     Space Way
                 </StyledLink>
             </LogoDiv>
-            <StyledLink to="/">Discover</StyledLink>
+            <StyledLink to="/discover">Discover</StyledLink>
             <StyledLink to="/today">Today picture</StyledLink>
             <StyledLink to="/search">Search</StyledLink>
         </NavContainer>
