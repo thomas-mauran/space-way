@@ -14,6 +14,8 @@ import Error from './components/Error';
 
 import Home from './pages/Home';
 
+import System from './pages/System';
+
 //global style
 
 import { createGlobalStyle } from 'styled-components';
@@ -28,7 +30,9 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1em;
   }
   body{
-    background-color: ${colors.background_color}
+    height: 100vh;
+    background: rgb(72,17,136);
+    background: linear-gradient(180deg, rgba(72,17,136,1) 0%, rgba(0,0,0,1) 100%, rgba(0,212,255,1) 100%);
   }
 
 `;
@@ -40,6 +44,7 @@ root.render(
             <Header />
             <Routes>
                 <Route exact path="/" element={<Home />} />
+                <Route path="/system" element={<System />} />
                 <Route path="*" element={<Error />} />
             </Routes>
         </BrowserRouter>

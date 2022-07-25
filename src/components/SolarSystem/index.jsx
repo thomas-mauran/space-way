@@ -1,20 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 import { Canvas } from '@react-three/fiber';
-import { PerspectiveCamera } from '@react-three/drei';
 
 import { OrbitControls, Stars } from '@react-three/drei';
 
-import Earth from '../Earth';
 import Sun from '../Sun';
-import Shatered_planet from '../Shatered_planet';
-import Earth2 from '../Earth2';
 import Planet from '../Planet';
 
 let assetList = [];
 
-let numberOfAssets = 3;
+let numberOfAssets = 5;
 
 const earth2_stats = {
     size: 0.5,
@@ -34,9 +29,23 @@ const shatered_planet_stats = {
     initPosition: [0, 0, 0],
 };
 
+const purple_planet = {
+    size: 0.5,
+    skin: 'purple_planet',
+    initPosition: [0, 0, 0],
+};
+
+const saturn = {
+    size: 0.3,
+    skin: 'saturn',
+    initPosition: [0, 0, 0],
+};
+
 assetList.push(earth_stats);
 assetList.push(earth2_stats);
 assetList.push(shatered_planet_stats);
+assetList.push(purple_planet);
+assetList.push(saturn);
 
 let assetsTab = [];
 
@@ -44,27 +53,15 @@ for (let i = numberOfAssets; i > 0; i--) {
     let r = Math.floor(Math.random() * i);
     assetsTab.push(assetList[r]);
     assetList.splice(r, 1);
-    console.log(r);
 }
-
-console.log(assetsTab);
 
 function SolarSystem() {
     return (
-        <Canvas>
-            <OrbitControls enableZoom={true} />
-            {/* <rectAreaLight
-                width={35}
-                height={35}
-                intensity={10}
-                color={'red'}
-                position={[0, 0, 3]}
-                rotation={[0, 0, 0]}
-                castShadow
-            /> */}
+        <Canvas camera={{ position: [0, 5, 10] }}>
+            <ambientLight intensity={0.3} />
 
-            <ambientLight />
-            <Sun castShadow={false} />
+            <pointLight intensity={2} />
+            <Sun />
 
             <Planet
                 // skin={assetsTab[0].skin}
@@ -77,7 +74,7 @@ function SolarSystem() {
             <Planet
                 // skin={assetsTab[1].skin}
                 skin={assetsTab[1].skin}
-                size={assetsTab[1].size}
+                size={assetsTab[1].size * 1.5}
                 position={assetsTab[1].initPosition}
                 rayon={10}
             />
@@ -85,16 +82,29 @@ function SolarSystem() {
             <Planet
                 // skin={assetsTab[1].skin}
                 skin={assetsTab[2].skin}
-                size={assetsTab[2].size}
+                size={assetsTab[2].size * 1.5}
                 position={assetsTab[2].initPosition}
-                rayon={15}
+                rayon={20}
+            />
+
+            <Planet
+                // skin={assetsTab[1].skin}
+                skin={assetsTab[3].skin}
+                size={assetsTab[3].size * 2}
+                position={assetsTab[3].initPosition}
+                rayon={30}
+            />
+
+            <Planet
+                // skin={assetsTab[1].skin}
+                skin={assetsTab[4].skin}
+                size={assetsTab[4].size * 2}
+                position={assetsTab[4].initPosition}
+                rayon={40}
             />
 
             <Stars />
-            {/* <mesh rotation={[90, 0, 20]}>
-                <boxBufferGeometry attach="geometry" args={[3, 5, 3]} />
-                <meshLambertMaterial attach="material" color="blue" />
-            </mesh> */}
+            <OrbitControls autoRotate enableZoom />
         </Canvas>
     );
 }

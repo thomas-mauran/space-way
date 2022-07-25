@@ -10,6 +10,11 @@ function Planet(props) {
     let r = Math.random();
     let speed = (Math.random() / 100) * (r > 0.5 ? -1 : 1);
 
+    let turnWithY = false;
+    if (r > 0.5) {
+        turnWithY = true;
+    }
+
     let xInitPos = props.position[0];
     let yInitPos = props.position[1];
     let zInitPos = props.position[2];
@@ -35,12 +40,23 @@ function Planet(props) {
 
     useFrame(() => {
         // La rotation sur soi même
-        gltf.scene.rotation.y += 0.01;
+        gltf.scene.rotation.x += 0.005;
+
+        if (r < 0.3) {
+            gltf.scene.position.x = rayon * Math.cos(time);
+            gltf.scene.position.y = rayon * Math.sin(time);
+            gltf.scene.rotation.z += 0.01;
+        } else if (r < 0.6 && r > 0.3) {
+            gltf.scene.position.x = rayon * Math.cos(time);
+            gltf.scene.position.z = rayon * Math.sin(time);
+            gltf.scene.rotation.y += 0.01;
+        } else {
+            gltf.scene.position.y = rayon * Math.cos(time);
+            gltf.scene.position.z = rayon * Math.sin(time);
+            gltf.scene.rotation.x += 0.01;
+        }
 
         time += speed;
-
-        gltf.scene.position.x = rayon * Math.cos(time);
-        gltf.scene.position.z = rayon * Math.sin(time);
     });
 
     return <primitive object={gltf.scene} />;

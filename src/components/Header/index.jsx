@@ -44,7 +44,7 @@ function Header() {
                     Space Way
                 </StyledLink>
             </LogoDiv>
-            <StyledLink to="/discover">Discover</StyledLink>
+            <StyledLink to="/system">Discover</StyledLink>
             <StyledLink to="/today">Today picture</StyledLink>
             <StyledLink to="/search">Search</StyledLink>
         </NavContainer>
