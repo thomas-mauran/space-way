@@ -8,7 +8,7 @@ buildpacks:
     - BP_WEB_SERVER_ROOT=dist
     - BP_WEB_SERVER=nginx
 project:
-    id: ab20d903-dcd1-40c9-a28f-bc342ee46906
-    name: space-way
-    createdat: 2023-07-13T06:26:43.998Z
-    updatedat: 2023-07-13T06:26:43.998Z
+    id: 9a2da32d-cf08-4a1a-bd63-4426b219075d
+    name: spaceway
+    createdat: 2023-07-13T06:55:30.244Z
+    updatedat: 2023-07-13T06:55:30.244Z
