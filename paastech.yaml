@@ -1,8 +1,12 @@
+env:
+  PORT: 80
 buildpacks:
-    builder: paketobuildpacks/builder:full
-    buildpack: ""
-    env: []
-    path: .
+  path: "."
+  builder: "paketobuildpacks/builder:full"
+  buildpack: "paketo-buildpacks/web-servers"
+  env:
+    - BP_WEB_SERVER_ROOT=dist
+    - BP_WEB_SERVER=nginx
 project:
     id: ab20d903-dcd1-40c9-a28f-bc342ee46906
     name: space-way
