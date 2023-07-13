@@ -1,0 +1,10 @@
+buildpacks:
+    builder: paketobuildpacks/builder:full
+    buildpack: ""
+    env: []
+    path: .
+project:
+    id: ab20d903-dcd1-40c9-a28f-bc342ee46906
+    name: space-way
+    createdat: 2023-07-13T06:26:43.998Z
+    updatedat: 2023-07-13T06:26:43.998Z
